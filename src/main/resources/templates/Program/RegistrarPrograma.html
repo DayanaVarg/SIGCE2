@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://wwww.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/programa.css}" />
+</head>
+
+<body>
+  <div class="botonespace">
+    <button id="button" class="buttonR">Registrar Programa</a></button>
+</div>
+    <div class="bg-modal">
+        <div class="container ">
+            <div class="close ">+</div>
+            <div class="heading ">Registrar Programa</div>
+            <form th:action="@{/Programa/add}"  method="POST" class="form ">
+                <div class="flex ">
+                    <label>
+                <input required=" " class="input " type="text " name="nombre_Pro">
+                <span>Nombre</span>    
+                </label>
+                <select name="estado.id_Est"  class="holder ">
+                    <option>Seleccione el estado</option>
+                    <option th:value="1" class="option">Activo</option>
+                    <option th:value="2" class="option">Inactivo</option>
+                </select>
+                    <input class="login-button " type="submit" value="Registrar ">
+
+            </form>
+            </div>
+
+            <script th:src="@{/js/programa.js}"></script>
+</body>
+
+</html>

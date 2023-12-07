@@ -1,0 +1,535 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*buscar de tablas*/
+
+.dataTable-top,
+.dataTable-bottom{
+    padding:20px 10px;
+}
+
+/*texto izquierda*/
+.dataTable-top > div:first-child{
+     font-size: 10px;
+     float: right;
+     margin-right: 20px;
+       
+}
+.dataTable-bottom > div:first-child{
+     font-size: 10px;
+   
+}
+
+/*POSICION BUSCAR*/
+.dataTable-top > div:last-child,
+.dataTable-bottom > div:last-child{
+    line-height: 28px;
+    float: right;
+    margin-right: 150px;
+   
+     
+}
+
+/*Selector*/
+.dataTable-selector{
+    padding:6px;
+    border-radius: 10px;
+    width: 160px;
+    border: 1px solid rgb(197, 195, 195);
+}
+.dataTable-selector:focus{
+    border-color:#87c770;
+    background-color: #fff;
+    box-shadow: 0 0 0 6px rgba(67, 219, 125, 20%);
+
+}
+/*casilla buscar*/
+.dataTable-input{
+  font-size: 12px;
+    min-width: 165%;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    border: 1px solid rgb(197, 195, 195);
+    color: #0d0c22;
+    transition: .3s ease;
+
+}
+.dataTable-input::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .dataTable-input:focus, .dataTable-input:hover {
+    outline: none;
+    border-color:#87c770;
+    background-color: #fff;
+    box-shadow: 0 0 0 6px rgba(67, 219, 125, 20%);
+   }
+   
+   /*parte de abajo*/
+.dataTable-info{
+    margin:2px 0;
+ 
+}
+
+
+/*filters titulos*/
+.dataTable-sorter{
+    display:inline-block;
+    height:100%;
+    position:relative;
+    width:100%;
+ 
+}
+/*flechitas filtros titulo*/
+.dataTable-sorter::before,
+.dataTable-sorter::after{
+    content:"";
+    height:0;
+    width:0;
+    position:absolute;
+    right:4px;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    opacity:0;
+
+}
+
+.dataTable-sorter::before{
+    border-top:4px solid #000;
+    bottom:2px
+}
+
+.dataTable-sorter::after{
+    border-bottom:4px solid #000;
+    border-top:4px solid transparent;
+    top:-2px
+}
+
+.asc .dataTable-sorter::after,
+.desc .dataTable-sorter::before{
+    opacity:.6
+}
+
+
+.dataTable-top::after,
+.dataTable-bottom::after{
+    clear:both;
+    content:" ";
+    display:table;
+}
+
+
+/*************************************tabla*/
+.tituloinstructor{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+
+.Caja-titulo{
+  margin-left: 20px;
+  letter-spacing: 8px;
+ margin-top: 30px;
+ margin-bottom: -50px;
+ display: flex;
+
+  }
+ 
+.tituloinstructor{
+    font-size: 26px;
+    font-weight: 1000;
+    letter-spacing: 5px;
+    align-items: center;
+    color: #195204;
+ 
+  }
+ 
+  .Caja-titulo .instructor{
+    font-size: 30px;
+    color: #195204;
+  }
+
+  .Direction-tabla{
+    margin-left: 10%;
+    width: 70%;
+    grid-area: Direction-tabla;
+    margin-top: 40px;
+    outline: none;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(0deg, rgb(238, 238, 238) 0%, rgb(244, 250, 255) 100%);
+    box-shadow: rgba(113, 202, 140, 0.878) 0px 30px 30px -20px;
+  }
+  
+  table.miyazaki {
+  display: block;
+  max-height: 380px;
+  max-width:105%;
+  color: #ffffff;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  
+  }
+  table.miyazaki::-webkit-scrollbar{
+  width: 7px;
+  position: absolute;
+  }
+  table.miyazaki::-webkit-scrollbar-thumb{
+  background: #a7a7a7;
+  border-radius: 50px;
+  }
+  
+  table.miyazaki caption {
+    font-size: 2rem;
+    color: #fff;
+    margin: 10px;
+    background-position: center left, center right;
+  }
+  
+  table.miyazaki thead th {
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 800;
+  background: #87c770;
+  font-size: 12px;
+  padding: 2px 15px 7px 10px ;
+  }
+  
+  table.miyazaki tbody td {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    font-display:inherit;
+    color: #0a0808;
+    background: #fff;
+    border: 1px solid rgb(249, 244, 244);
+  }
+  
+  
+  /*button*/
+  
+  table.miyazaki tbody td .button1{
+  font-size: 7px;
+  position: relative;
+  padding: 1em 1.5em 1em 1.5em;
+  border: none;
+  background: #87c770;
+  box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+  }
+  
+  .button1:active {
+  transform: scale(0.95);
+  }
+     
+  .button1 span {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 8px;
+  letter-spacing: 2px;
+  }
+     
+  .button1 .border {
+  position: absolute;
+    border: 2em solid rgb(243, 145, 79);
+    transition: all 0.3s 0.08s linear;
+    top: 50%;
+    left: 50%;
+    width: 8.5em;
+    height: 3.5em;
+    transform: translate(-50%, -50%);
+  }
+     
+  .button1:hover .border {
+  display: block;
+  width: 10.7em;
+  height: 3.8em;
+  }
+     
+  .full-rounded {
+  border-radius: 2em;
+  }
+  
+  
+  /*button2*/
+  table.miyazaki tbody td .button2{
+  font-size: 8px;
+  position: relative;
+  margin: 0;
+  padding: 1em 0.5em 1em 0.5em;
+  border: none;
+  background-color: rgb(243, 145, 79);
+  transition: all 0.1s linear;
+  box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+  }
+  .button2:active {
+            transform: scale(0.95);
+  }  
+         
+           
+  .button2 span {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  }
+  
+  .button2 .border {
+  position: absolute;
+  border: 4px solid  rgb(243, 145, 79);
+  transition: all 0.3s 0.08s linear;
+  top: 50%;
+  left: 50%;
+  width: 7em;
+  height: 3.5em;
+  transform: translate(-50%, -50%);
+  }
+         
+  .button2:hover .border {
+            display: block;
+            width: 8.7em;
+            height: 3.8em;
+  }
+         
+  .full-rounded {
+            border-radius: 4em;
+  }
+  
+  
+          /*EDIT BUTTON */
+          .edit-button {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: rgb(5, 80, 35);
+            border: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+            cursor: pointer;
+            transition-duration: 0.3s;
+            overflow: hidden;
+            position: relative;
+            text-decoration: none !important;
+          }
+         
+          .edit-svgIcon {
+            width: 17px;
+            transition-duration: 0.3s;
+          }
+         
+          .edit-svgIcon path {
+            fill: white;
+          }
+         
+          .edit-button:hover {
+            width: 80px;
+            border-radius: 50px;
+            transition-duration: 0.5s;
+            background-color: rgb(227, 139, 80);
+            align-items: center;
+          }
+         
+          .edit-button:hover .edit-svgIcon {
+            width: 20px;
+            transition-duration: 0.3s;
+            transform: translateY(60%);
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+         
+          .edit-button::before {
+            display: none;
+            content: "Editar";
+            color: white;
+            transition-duration: 0.3s;
+            font-size: 2px;
+          }
+         
+          .edit-button:hover::before {
+            display: block;
+            padding-right: 6px;
+            font-size: 11px;
+            opacity: 1;
+            transform: translateY(0px);
+            transition-duration: 0.3s;
+          }
+        
+  
+  @keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+  }
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width:1544px){
+  .dataTable-top,
+.dataTable-bottom{
+    padding:20px 10px;
+}
+
+/*texto izquierda*/
+.dataTable-top > div:first-child{
+     font-size: 10px;
+     float: right;
+     margin-right: 20px;
+       
+}
+.dataTable-bottom > div:first-child{
+     font-size: 10px;
+   
+}
+
+/*POSICION BUSCAR*/
+.dataTable-top > div:last-child,
+.dataTable-bottom > div:last-child{
+    line-height: 28px;
+    float: right;
+    margin-right: 80px;
+   
+     
+}
+
+/*Selector*/
+.dataTable-selector{
+    padding:6px;
+    border-radius: 10px;
+    width: 160px;
+    border: 1px solid rgb(197, 195, 195);
+}
+.dataTable-selector:focus{
+    border-color:#87c770;
+    background-color: #fff;
+    box-shadow: 0 0 0 6px rgba(67, 219, 125, 20%);
+
+}
+/*casilla buscar*/
+.dataTable-input{
+  font-size: 12px;
+    min-width: 125%;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    border: 1px solid rgb(197, 195, 195);
+    color: #0d0c22;
+    transition: .3s ease;
+
+}
+}
+
+@media screen and (max-width:1438px){
+  .dataTable-top,
+.dataTable-bottom{
+    padding:20px 10px;
+}
+
+/*texto izquierda*/
+.dataTable-top > div:first-child{
+     font-size: 10px;
+     float: right;
+     margin-right: 20px;
+       
+}
+.dataTable-bottom > div:first-child{
+     font-size: 10px;
+   
+}
+
+/*POSICION BUSCAR*/
+.dataTable-top > div:last-child,
+.dataTable-bottom > div:last-child{
+    line-height: 28px;
+    float: right;
+    margin-right: 40px;
+   
+     
+}
+
+/*Selector*/
+.dataTable-selector{
+    padding:6px;
+    border-radius: 10px;
+    width: 70px;
+    border: 1px solid rgb(197, 195, 195);
+}
+.dataTable-selector:focus{
+    border-color:#87c770;
+    background-color: #fff;
+    box-shadow: 0 0 0 6px rgba(67, 219, 125, 20%);
+
+}
+/*casilla buscar*/
+.dataTable-input{
+  font-size: 12px;
+    min-width: 105%;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    border: 1px solid rgb(197, 195, 195);
+    color: #0d0c22;
+    transition: .3s ease;
+
+}
+}
+
+
+.actions {
+    margin: 0.75rem 1rem;
+}
+.button{
+    width: 120px;
+    font-size: 12px;
+    font-weight: 200;
+    background: #87c770;
+    color: white;
+    border-radius: 8px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    float: right;
+}

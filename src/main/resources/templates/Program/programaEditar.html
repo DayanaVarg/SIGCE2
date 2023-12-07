@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://wwww.thymeleaf.org" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/aprendiz.css}">
+    <link rel="stylesheet" th:href="@{/css/editarAprendiz.css}">
+    <link rel="stylesheet" th:href="@{/css/editarPrograma.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}" />
+    <link rel="shortcut icon" th:href="@{/img/Siigce.ico} " sizes="25">
+    
+    <title>ACTUALIZAR PROGRAMA .:. SIGCE</title>
+</head>
+<body>
+    <div th:replace="fragmentos/header2"></div>
+
+    <div class="alert alert-danger" th:if="${error != null}">
+        <span th:style="color: " th:text="${error}"></span>
+    </div>
+
+    <div class="alert alert-success" th:if="${success != null}">
+        <span th:text="${success}"></span>
+    </div>
+    
+    <div class="containerEditar">
+        <div class="botonespace">
+            <a th:href="@{/Programa/listarPrograma}" class="buttonR">  <button class="bookmarkBtn">
+                <span class="IconContainer"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: msFilter"><path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z"></path></svg>
+                </span>
+                <p class="text">Atrás</p>
+              </button></a>
+        </div> 
+        <form th:action="@{/Programa/{id}(id=${programa.id_Pro})}" class="form1" th:object="${programa}" method="POST" onsubmit="return comprobarActualizar()">
+            <h1 class="titule1">Actualizar Programa</h1>
+            <div class="flex">
+                <label>
+                    <input type="text" class="input1" name="id_Pro" th:field="*{id_Pro}" readonly>
+                    <span>Id programa</span>    
+                </label>
+            </div>
+
+            <div class="flex">
+                <label>
+                    <input type="text" class="input1" placeholder="" name="nombre_Pro" th:field="*{nombre_Pro}">
+                    <span>Nombre Programa</span>
+                </label>
+            </div>
+            <input name="estado.id_Est" type="hidden" th:field="*{estado.id_Est}">
+            <button class="submit" type="submit">Actualizar</button>
+                
+        </form>
+        
+    </div>  
+    <script th:src="@{/js/programa.js}"></script>
+</body>
+</html>

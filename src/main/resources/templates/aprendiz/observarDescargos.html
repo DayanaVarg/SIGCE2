@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/citacion.css}">
+        <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}" />
+       
+    
+        <title>Descargos .:. SIGCE</title>
+    </head>
+<body>
+    <div th:replace="fragmentos/headerAprendiz"></div>
+
+    <form class="form2" method="POST" th:each="c:${caso}">
+
+        <p class="title1 titleD">Descargos</p>
+        <label>
+            <textarea  class="campo campo2" rows="20" cols="65" name="desc_Cas"  th:value="${c.desc_Cas}"  th:text="${c.desc_Cas}" readonly>
+            </textarea>
+
+        </label>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.botonespace{
+    position: absolute;
+    left: 80%;
+    bottom: 75%;
+    float:right;
+    }
+    
+    .buttonR {
+      position: relative;
+        width: 170px;
+        font-weight: bold;
+        background: #87c770;
+        color: white;
+        padding-block: 15px;
+        border-radius: 8px;
+        box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+        border: none;
+        cursor: pointer;
+    }
+    
+
+.tituloaprendiz{
+    margin-left: 35%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+.Container-modal {
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    display: none;
+}
+
+.form2 {
+    background-color: black;
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 550px;
+    padding: 35px;
+    border-radius: 20px;
+    position: absolute;
+    background: #3b55bbe0;
+    background: linear-gradient(0deg, rgb(238, 238, 238) 0%, rgb(244, 250, 255) 100%);
+    border: 5px solid rgb(252, 248, 248);
+    box-shadow: rgba(113, 202, 140, 0.878) 0px 30px 30px -20px;
+}
+
+.closeB {
+    position: absolute;
+    top: 5px;
+    right: 19px;
+    font-size: 25px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.title {
+    margin-left: 15%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #87c770;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+}
+
+.form2 label {
+    position: relative;
+}
+
+.form2 label .input {
+    background: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+    padding: 20px 05px 05px 10px;
+    border-radius: 10px;
+    border: 0.1px solid rgba(223, 222, 222, 0.397);
+    border-radius: 10px;
+    box-shadow: #5eca76 0px 5px 10px -5px;
+}
+
+.form2 label .input+span {
+    font-weight: 500;
+    color: #6b6b6b;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.form2 label .input:placeholder-shown+span {
+    top: 12.5px;
+    font-size: 0.9em;
+}
+
+.form2 label .input:focus+span,
+.form2 label .input:valid+span {
+    color: #87c770;
+    top: 0px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.form2 .input:focus {
+    outline: none;
+    border-inline: 3px solid #5eca76;
+}
+
+.input {
+    font-size: medium;
+}
+
+.form2 label .doc {
+    background: rgb(255, 255, 255);
+    border: none;
+    width: 10px;
+    padding: 20px 05px 05px 10px;
+    border-radius: 10px;
+    border: 0.1px solid rgba(223, 222, 222, 0.397);
+    border-radius: 10px;
+    box-shadow: #5eca76 0px 5px 10px -5px;
+}
+
+
+/*date*/
+
+.form2 label .date {
+    background: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+    padding: 20px 05px 05px 10px;
+    outline: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 208, 208, 0.397);
+    border-radius: 10px;
+    box-shadow: #5eca76 0px 5px 10px -5px;
+}
+
+.form2 label .date+span {
+    font-weight: 500;
+    color: #6b6b6b;
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.form2 label .date:placeholder-shown+span {
+    top: 5px;
+    font-size: 0.9em;
+}
+
+.form2 label .date:focus+span,
+.form2 label .date:valid+span {
+    color: #87c770;
+    top: 0px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.form2 .date:focus {
+    outline: none;
+    border-inline: 3px solid #5eca76;
+}
+
+.date {
+    font-size: medium;
+}
+
+.doc {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #6b6b6b;
+    width: 50%;
+    background: rgb(255, 255, 255);
+    border: none;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: #5eca76 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+}
+
+.doc:focus {
+    outline: none;
+    border-inline: 3px solid #5eca76;
+}
+
+.holder {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #6b6b6b;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    border: none;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: #5eca76 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+}
+
+.holder:focus {
+    outline: none;
+    border-inline: 3px solid #5eca76;
+}
+
+.submit {
+    letter-spacing: 0.3rem;
+    display: block;
+    width: 98%;
+    font-weight: bold;
+    background: #87c770;
+    color: white;
+    padding-block: 15px;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+}
+
+.submit:hover {
+    transform: scale(1.06);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0.6em;
+  margin-top: -0.25em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  position: absolute;
+}
+      
+.label {
+  top: -1px;
+  position: relative;
+}
+      
+.transition{
+  transition-duration: 500ms;
+  background-color: rgba(16, 185, 129, 0.6);
+  border-radius: 9999px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+      
+button:hover .transition {
+  height: 14em;
+  width: 14em;
+}
+      
+
+table.miyazaki tbody tr:not(:last-child) {
+  border-bottom: 1px solid #969595;
+  border: 1px solid #0c0000;
+}
+
+
+@keyframes pulse {
+    form2 {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://wwww.thymeleaf.org" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
+    <link rel="stylesheet" th:href="@{/css/citacionInstructor.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}" />
+
+    <script type="text/javascript" th:src="@{https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js}"></script>
+</head>
+<title>Citaciones .:. SIGCE</title>
+<body>
+    <div th:replace="fragmentos/headerInstructor"></div>  
+    <h1 class="tituloCitacion">Citaciones</h1>
+
+    <table class="miyazaki" id="datat">
+        
+        <thead >
+            <tr>
+                <th>identificacion del aprendiz</th>
+                <th>Nombre del aprendiz</th>
+                <th>Apellido del aprendiz</th>
+                <th>Competencia</th>
+                <th>Resultado Aprendizaje</th>
+                <th>Motivo</th>
+                <th>Gravedad</th>
+                <th>Articulo</th>
+                <th>Documentacion</th>
+
+        </thead>
+        <tbody>
+            <tr th:each="c:${caso}">
+                <td th:text="${c.aprendiz.identificacion_Apr}"></td>
+                <td th:text="${c.aprendiz.nombre_Apr}"></td>
+                <td th:text="${c.aprendiz.apellido_Apr}"></td>
+                <td th:text="${c.resultado.competencia.nombre_Comp}"></td>
+                <td th:text="${c.resultado.nombre_Res}"></td>
+                <td th:text="${c.motivo_Cit}"></td>
+                <td th:text="${c.gravedad_Cit}"></td>
+                <td th:text="${c.articulo.nombre_Art}"></td>
+                <td th:text="${c.docu_Cit}"></td>
+        </tbody>
+        </table>
+</div>
+<script>
+
+    var datat=document.querySelector("#datat"); 
+    var dataTable=new DataTable("#datat",{ 
+      labels: {
+          placeholder: "Busca por un campo...",
+          noRows: "No se encontraron registros",
+          perPage: "Motrar {select} registros por página",
+          info: "Mostrando {start} a {end} de {rows} registros",
+      },
+
+    } ) ;
+    
+</script>
+</body>
+</body>

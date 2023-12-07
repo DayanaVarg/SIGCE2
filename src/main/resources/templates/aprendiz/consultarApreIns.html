@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGISTRAR APRENDIZ .:. SIGCE</title>
+  <link rel="stylesheet" th:href="@{/css/historial.css}">
+</head>
+
+<body>
+<div class="botonespace">
+  <button id="buttonR" class="buttonR">Consultar Aprendiz</button>
+</div>
+
+<div class="Container-modal">
+  <form class="form1" th:action="@{/Instructor/consultA}" method="POST">
+    <div class="closeB">+</div>
+    <p class="title ">Consultar Aprendiz</p>
+
+    <label>
+      <input class="input" name="identificacion_Apr" type="text"  placeholder="" required="">
+      <span>Documento aprendiz</span>
+    </label>
+    <button class="submit">Consultar</button>
+  </form>
+  <div class="colorlibcopy-agile">
+  </div>
+</div>
+
+<script th:src="@{/js/aprendiz.js}"></script>
+<script th:src="@{/js/ficha.js}"></script>
+</body>
+
+
+</html>

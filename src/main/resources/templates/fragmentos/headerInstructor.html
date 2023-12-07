@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIGCE</title>
+    <link rel="stylesheet" th:href="@{/css/headerInstructor.css}" />
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/boxiconslatest/css/boxicons.min.css}" />
+
+</head>
+
+<body>
+<header class="headerr">
+    <div class="headerr__container">
+
+
+         <button id="buttonCor" class="button22">
+            <a th:href="@{/Instructor/actualizarUsu}"><span>Actualizar datos</span></a>
+        </button>
+
+    </div>
+</header>
+
+<div class="nav" id="navbar">
+    <img class="logonav__logo" th:src="@{/img/logo1.png}" />
+    <nav class="nav__container">
+        <div>
+            <div class="nav__list">
+                <div class="nav__items">
+                    <a th:href="@{/Instructor/menuInstructor}" class="nav__link active">
+                        <i class="bx bx-home nav__icon"></i>
+                        <span class="nav__name">Inicio</span>
+                    </a>
+                </div>
+
+                <div class="nav__items">
+                    <h3 class="nav__subtitle">Menu</h3>
+
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-user nav__icon"></i>
+                            <span class="nav__name">Aprendiz</span>
+                            <i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
+                        </a>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a th:href="@{/Instructor/consultarHistorial}" class="nav__dropdown-item">Consultar Historial</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class="bx bx-edit nav__icon"></i>
+                            <span class="nav__name">Citaciones</span>
+                            <i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
+                        </a>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a th:href="@{/Caso/registrar}" class="nav__dropdown-item">Registrar</a>
+                                <a th:href="@{/Caso/listarCitacionIns}" class="nav__dropdown-item">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a th:href="@{/logout}" class="nav__link nav__logout">
+            <i class="bx bx-log-out nav__icon"></i>
+            <span class="nav__name">Cerrar sesión</span>
+        </a>
+    </nav>
+</div>
+
+<section>
+
+</section>
+<script th:src="@{/js/headerCoor.js}"></script>
+<script th:src="@{/js/programa.js}"></script>
+</body>
+
+</html>

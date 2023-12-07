@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://wwww.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/ficha.css}" />
+    <link rel="shortcut icon" th:href="@{/img/Siigce.ico} " sizes="25">
+</head>
+
+<body>
+<div class="botonespace">
+    <button id="buttonR" class="buttonR">Registrar Ficha</a></button>
+</div>
+    <div class="Container-modal">
+        <form th:action="@{/Ficha/add/}" class="form" method="POST">
+
+            <div class="closeB">+</div>
+            <p class="title">Registrar Ficha</p>
+            <div class="flex">
+            <label>
+                <input name="id_Fic" class="input" type="text" placeholder="" required="">
+                <span>Número</span>
+            </label>
+
+            <label>
+                <select name="jornada_Fic" class="jor">
+                    <option value="">Jornada</option>
+                    <option value="Diurna">Diurna</option>
+                    <option value="Nocturna">Nocturna</option>
+                    <option value="Mixta">Mixta</option>
+                </select>
+            </label>
+            </div>
+
+            <select  name="programa.id_Pro" class="doc">
+                <option>Programa</option>
+                <option class="option" th:each="p:${listPrograma}" th:value="${p.id_Pro}" th:text="${p.nombre_Pro}"></option>
+            </select>
+
+            <label>
+                <input name="fechaComienzo_Fic" class="date" type="date" placeholder="" required="">
+                <span>Fecha inicio</span>
+            </label>
+
+            <label>
+                <input name="fechaFin_Fic" class="date" type="date" placeholder="" required="">
+                <span>Fecha Fin</span>
+            </label>
+
+            <input name="estado.id_Est" type="hidden" th:value="1">
+            <button class="submit">Registrar</button>
+
+        </form>
+    </div>
+    <script src="../js/ficha.js"></script>
+</body>
+
+</html>

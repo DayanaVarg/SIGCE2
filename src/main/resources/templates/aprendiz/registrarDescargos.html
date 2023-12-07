@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/citacion.css}">
+        <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}" />
+       
+    
+        <title>Registrar Descargos .:. SIGCE</title>
+    </head>
+<body>
+    <div th:replace="fragmentos/headerAprendiz"></div>
+
+    <form class="form2" th:action="@{/Aprendiz/descargosAd}" method="POST" th:each="c:${caso}">
+
+        <p class="title1 titleD">Descargos</p>
+
+        <label>
+            <textarea  class="campo" rows="25" cols="70" name="desc_Cas"  autofocus placeholder="Escribe aquí">
+            </textarea>
+
+        </label>
+
+        <input class="campo" type="hidden" name="aprendiz.identificacion_Apr" th:value="${username}">
+        <input class="campo" type="hidden" name="id_Caso" th:value="${c.id_Caso}">
+
+        <button class="submit">Registrar</button>
+    </form>
+
+</body>
+</html>

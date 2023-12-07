@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/historial.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}" />
+    <link rel="shortcut icon" th:href="@{/img/Siigce.ico}">
+    <script type="text/javascript" th:src="@{https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <title>Consultar Historial .:. SIGCE</title>
+</head>
+<body>
+<div th:replace="fragmentos/headerInstructor"></div>
+
+<div class="alert alert-danger alert-dismissable" th:if="${error != null}">
+    <span th:text="${error}"></span>
+</div>
+
+<div class="ContainerCitacion">
+
+    <div class="hist">
+        <h1 class="tituloaprendiz">Citaciones</h1>
+
+        <table class="miyazaki" id="datat">
+            <thead >
+            <tr>
+                <th>Fecha</th>
+                <th>Instructor</th>
+                <th>Motivo</th>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(caso)}">
+                <td colspan="3">No hay citaciones por mostrar</td>
+            </tr>
+            <tr th:each="c:${caso}" th:unless="${#lists.isEmpty(caso)}">
+                <td th:text="${c.fecha_Cas}"></td>
+                <td th:text="${c.instructor.nombre_Ins + ' ' + c.instructor.apellido_Ins}"></td>
+                <td th:text="${c.motivo_Cit}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div th:each="ap:${aprendiz}">
+    <form class="form" th:action="@{/Caso/add}" method="POST">
+        <p class="title title1">Aprendiz</p>
+            <label>
+                <input class="input" name="aprendiz.identificacion_Apr" type="text" th:value="${ap.identificacion_Apr}"  placeholder="" readonly>
+                <span>Documento aprendiz</span>
+            </label>
+            <div class="ultim" >
+                <label>
+                    <input class="input" type="text" th:value="${ap.nombre_Apr}"   placeholder="" readonly>
+                    <span>Nombre aprendiz</span>
+                </label>
+
+                <label>
+                    <input class="input" type="text" th:value="${ap.apellido_Apr}" placeholder="" readonly>
+                    <span>Apellido aprendiz</span>
+                </label>
+            </div>
+
+            <div class="ultim ">
+                <label>
+                    <input class="campo" type="text" th:value="${ap.Ficha.id_Fic}"   placeholder=""  readonly>
+                    <span>Ficha:</span>
+                </label>
+                <label>
+                    <input class="campo" type="text" th:value="${ap.Ficha.Programa.nombre_Pro}"  placeholder="" readonly>
+                    <span>Programa:</span>
+                </label>
+            </div>
+    </form>
+</div>
+
+</div>
+<div th:replace="/Aprendiz/consultarApreIns"></div>
+<script>
+    var datat=document.querySelector("#datat");
+    var dataTable=new DataTable("#datat",{
+        labels: {
+            placeholder: "Busca por un campo...",
+            noRows: "No se encontraron registros",
+            perPage: "Motrar {select} registros por página",
+            info: "Mostrando {start} a {end} de {rows} registros",
+        },
+
+    } ) ;
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const competenciaSelect = document.getElementById("competencia");
+        const resultadoApreSelect = document.getElementById("resultadoApre");
+
+        //Obtén todos los elementos option del segundo select
+        const resultadoApreOptions = resultadoApreSelect.querySelectorAll("option");
+
+        //Agrega un evento onchange al select de competencia
+        competenciaSelect.addEventListener("change", function () {
+            const competenciaSeleccionada = competenciaSelect.value;
+
+            //Itera a través de las opciones y muestra u oculta según la competencia seleccionada
+            resultadoApreOptions.forEach(function (option) {
+                if (option.getAttribute("data-competencia") === competenciaSeleccionada || competenciaSeleccionada === "Competencia") {
+                    option.style.display = "block"; // Muestra la opción
+                } else {
+                    option.style.display = "none"; // Oculta la opción
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

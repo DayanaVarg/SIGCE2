@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <!-- author -->
+    <meta name="author" content="SIGCE">
+    <!-- Description -->
+    <meta name="description" content="Sistema de gestion de llamado a comite">
+    <!-- Keywords -->
+    <meta name="Keywords" content="Sistema de gestion de llamado a comite" >
+    <!-- miimum responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login .:. SIGCE</title>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+
+<body>
+<div class="container" id="container">
+
+    <div class="form-register sign-up-container">
+
+        <form th:action="@{/Instructor/registroInstructor}" method="post" id="f1" onsubmit="return comprobarClave() && comprobarCodigo()" >
+            <h1>Registrarme</h1>
+            <div>
+                <input type="text" name="nombre_Ins" placeholder="Nombre" required  />
+                <input type="text" name="apellido_Ins" placeholder="Apellido" required />
+            </div>
+            <div>
+                <select name="tipoIde_Ins" class="tipo-doc2" required>
+                    <option value="" >Tipo Documento</option>
+                    <option value="CC">CC</option>
+                    <option value="CE">CE</option>
+                    <option value="CE">PASAPORTE</option>
+                </select>
+                <input type="number" name="identificacion_Ins" placeholder="Número Documento" required />
+            </div>
+
+
+            <input type="email" name="correo_Ins" placeholder="Correo Electrónico" class="tipo-doc" required pattern="[A-Za-z0-9,@,.]{8,60}"/>
+
+            <div>
+                <input type="password" name="pass_Ins" id="pass1"  placeholder="Contraseña"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       title="Debe contener al menos un número, una letra mayúscula, una letra minúscula y tener al menos 8 caracteres." required />
+                <input type="password" id="pass2"  placeholder="Confirmar Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       title="Debe contener al menos un número, una letra mayúscula, una letra minúscula y tener al menos 8 caracteres." required  />
+            </div>
+            <input type="text" id="cod" placeholder="Código otorgado" class="tipo-doc" required />
+
+            <div id="mensajeError" style="color: red;"></div>
+            <input type="hidden" name="estado.id_Est" value="1">
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+
+
+
+    <div class="form-container sign-in-container">
+        <form th:action="@{/login}" method="post">
+
+            <h1>Iniciar Sesión</h1>
+            <input type="text" name="username" placeholder="Número de documento" />
+            <input type="password" name="password" placeholder="Contraseña" />
+
+            <div th:if="${MensajeError}"> 
+                <p style="color: red;" th:text="${MensajeError}"></p>
+            </div>
+            <div th:if="${MensajeExitoso}" th:else>
+                <p style="color: #87c770;" th:text="${MensajeExitoso}"></p>
+            </div>
+            <div th:if="${param.error}">
+                <div  style="color: red">Datos de usuario incorrectos, vuelve a intentarlo</div>
+            </div>
+            <div th:if="${param.logout}">
+                <div  style="color: #87c770">Ha cerrado sesión correctamente, vuelve a ingresar</div>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>¿Ya estás registrado? </h1>
+                <p>Por favor, ingresa aquí.</p>
+                <button class="ghost" id="signIn">Iniciar</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>¿Aún no estás registrado?</h1>
+
+                <p>Llena tus datos y regístrate con nosotros</p>
+                <button type="submit" class="ghost" id="signUp" >Registrarme</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+</div>
+<p class="mt-3 mb-3 text-muted">Todos los derechos son reservados SENA
+    ©2023
+</p>
+</div>
+<script src="/js/validacion.js"></script>
+<script src="/js/login.js"></script>
+
+</body>
+
+
+
+</html>

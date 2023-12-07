@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/aprendiz2.css}">
+</head>
+
+<body>
+    <div class="botonespace">
+        <button id="buttonR" class="buttonR">Registrar Aprendiz</button>
+    </div>
+
+
+    <div class="Container-modal">
+        <form class="form2" th:action="@{/Instructor/registrarAprendices}" method="post" onsubmit="convertirMayusculas()">
+            <div class="closeB">+</div>
+            <p class="title">Registrar Aprendiz</p>
+
+            <div class="flex">
+                <label>
+                    <input class="input" type="text" id="nombre_Apr" name="nombre_Apr"  required="">
+                <span>Nombre</span>
+            </label>
+
+                <label>
+                <input class="input" type="text-email" id="apellido_Apr" name="apellido_Apr"  required="">
+                <span>Apellido</span>
+            </label>
+            </div>
+            <div class="flex">
+                <select id="state" class="doc" name="tipoIde_Apr" >
+                <option>Tipo de Documento</option>
+
+                <option class="option" alue="TI">TI</option>
+                <option class="option" value="CC">CC</option>
+                <option class="option" alue="CE">CE</option>
+                </select>
+
+                <label>
+                    <input class="input" type="text-email" name="identificacion_Apr"  required="">
+                    <span>Número de Documento</span>
+                </label>
+
+            </div>
+
+            <label>
+                <input class="input" type="email" name="correo_Apr"  required="">
+                <span>Correo electrónico</span>
+            </label>
+
+            <div class="flex">
+                <select id="state " name="ficha.id_Fic" class="doc">
+                    <option>Número de ficha</option>
+                    <option class="option" th:each="ficha : ${ficha}" th:value="${ficha.id_Fic}" th:text="${ficha.id_Fic}">2687351</option>
+                </select>
+
+                <label>
+                    <input class="input" type="password" name="password_Apr" placeholder=""  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Debe contener al menos un número, una letra mayúscula, una letra minúscula y tener al menos 8 caracteres." required>
+                    <span>Contraseña</span>
+                </label>
+            </div>
+
+            <input type="hidden" name="estado.id_Est" value="1">
+            <button class="submit">Registrar</button>
+        </form>
+        <div class="colorlibcopy-agile"></div>
+    </div>
+
+    <script th:src="@{/js/aprendiz.js}"></script>
+    <script th:src="@{/js/ficha.js}"></script> 
+</body>
+</html>
